@@ -6,10 +6,13 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
  
 public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
- 
-    //Sentencia SQL para crear la tabla de Usuarios
-    String sqlCreate = "CREATE TABLE Usuarios (codigo INTEGER, password TEXT)";
- 
+
+    String[] sentenciasSQL = new String [6];
+
+
+
+
+
     public UsuariosSQLiteHelper(Context contexto, String nombre,
                                CursorFactory factory, int version) {
         super(contexto, nombre, factory, version);
@@ -17,8 +20,20 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
  
     @Override
     public void onCreate(SQLiteDatabase db) {
+        sentenciasSQL [0] = "CREATE TABLE autobuses (matricula TEXT, contraseña TEXT)";
+        sentenciasSQL [1] = "CREATE TABLE rutas (matricula TEXT, latitud NUMBER, longitud NUMBER, data TEXT)";
+        sentenciasSQL [2] = "CREATE TABLE jornada (matricula TEXT, hora_inici TEXT, hora_fi TEXT)";
+        sentenciasSQL [3] = "INSERT INTO autobuses VALUES ('1111A', '1234')";
+        sentenciasSQL [4] = "INSERT INTO autobuses VALUES ('2222B', '4321')";
+        sentenciasSQL [5] = "INSERT INTO autobuses VALUES ('3333C', '1423')";
+
+
+
+
         //Se ejecuta la sentencia SQL de creaci�n de la tabla
-        db.execSQL(sqlCreate);
+        for (int i = 0; i < sentenciasSQL.length; i++) {
+            db.execSQL(sentenciasSQL[i]);
+        }
     }
  
     @Override
@@ -32,10 +47,10 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
         //      ser m�s elaborado.
  
         //Se elimina la versi�n anterior de la tabla
-        db.execSQL("DROP TABLE IF EXISTS Usuarios");
+        //db.execSQL("DROP TABLE IF EXISTS Usuarios");
  
         //Se crea la nueva versi�n de la tabla
-        db.execSQL(sqlCreate);
+        //db.execSQL(sqlCreate);
     }
 }
 

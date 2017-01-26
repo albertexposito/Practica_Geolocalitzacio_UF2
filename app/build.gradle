@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "net.sgoliver.android.bd"
-        minSdkVersion 8
+        minSdkVersion 14
         targetSdkVersion 17
     }
 
