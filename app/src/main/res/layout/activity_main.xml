@@ -102,7 +102,7 @@
             android:text="@string/entrar"
             android:layout_width="371dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button" />
+            android:id="@+id/buttonentrar" />
 
     </LinearLayout>
 

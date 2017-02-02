@@ -52,5 +52,20 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
         //Se crea la nueva versi�n de la tabla
         //db.execSQL(sqlCreate);
     }
+
+    /**
+     * Metode per a realitzar la cerca del usuari en la taula autobusos i comprovar que les dades són
+     * correctes.
+     * @param usuari
+     * @param contrasenya
+     * @return
+     */
+    public boolean cercaUsuari(String usuari, String contrasenya){
+        boolean correcte = false;
+
+
+
+        return correcte;
+    }
 }
 

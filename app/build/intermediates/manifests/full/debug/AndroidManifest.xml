@@ -5,8 +5,12 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="17"
+        android:targetSdkVersion="25" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="net.sgoliver.android.bd.LogOutActivity"
+            android:label="@string/title_activity_log_out" />
     </application>
 
 </manifest>

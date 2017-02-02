@@ -1,16 +1,28 @@
 package net.sgoliver.android.bd;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+        //Creamos los campos y el boton.
+
+		//Inicializamos el boton
+		Button buttonEnviar = (Button) findViewById(R.id.buttonentrar);
+		//Le aplicamos un clickListener
+		buttonEnviar.setOnClickListener(this);
 		
 		//Abrimos la base de datos 'DBUsuarios' en modo escritura
         UsuariosSQLiteHelper usdbh =
@@ -21,18 +33,6 @@ public class MainActivity extends Activity {
         //Si hemos abierto correctamente la base de datos
         if(db != null)
         {
-            //Insertamos 5 usuarios de ejemplo
-            for(int i=1; i<=5; i++)
-            {
-                //Generamos los datos
-                int codigo = i;
-                String nombre = "Usuario" + i;
- 
-                //Insertamos los datos en la tabla Usuarios
-                db.execSQL("INSERT INTO Usuarios (codigo, nombre) " +
-                           "VALUES (" + codigo + ", '" + nombre +"')");
-            }
- 
             //Cerramos la base de datos
             db.close();
         }
@@ -45,5 +45,27 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+
+
+
+
+
+    /**
+     * Boton de enviar y el menu de seleccion de FECHA.
+     * @param v
+     */
+    @Override
+    public void onClick(View v){
+
+        if (v.getId() == R.id.buttonentrar) {
+
+            EditText etMatricula = (EditText) findViewById(R.id.etMatricula);
+            EditText etContrasenya = (EditText) findViewById(R.id.etContrasenya);
+
+
+
+        }
+    }
 
 }

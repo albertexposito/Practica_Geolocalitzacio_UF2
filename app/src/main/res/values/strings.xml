@@ -7,5 +7,7 @@
     <string name="matricula">Matricula:</string>
     <string name="contrasenya">Contrasenya:</string>
     <string name="entrar">Entrar</string>
+    <string name="sortir">Sortir</string>
+    <string name="title_activity_log_out">LogOutActivity</string>
 
 </resources>
