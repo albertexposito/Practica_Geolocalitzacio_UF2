@@ -60,6 +60,7 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
      * @param contrasenya
      * @return
      */
+    
     public boolean cercaUsuari(String usuari, String contrasenya){
         boolean correcte = false;
 
