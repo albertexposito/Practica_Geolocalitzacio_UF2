@@ -1,6 +1,7 @@
 package net.sgoliver.android.bd;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -20,7 +21,8 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
  
     @Override
     public void onCreate(SQLiteDatabase db) {
-        sentenciasSQL [0] = "CREATE TABLE autobuses (matricula TEXT, contraseña TEXT)";
+        
+        sentenciasSQL [0] = "CREATE TABLE autobuses (matricula TEXT, contrasenya TEXT)";
         sentenciasSQL [1] = "CREATE TABLE rutas (matricula TEXT, latitud NUMBER, longitud NUMBER, data TEXT)";
         sentenciasSQL [2] = "CREATE TABLE jornada (matricula TEXT, hora_inici TEXT, hora_fi TEXT)";
         sentenciasSQL [3] = "INSERT INTO autobuses VALUES ('1111A', '1234')";
@@ -53,20 +55,6 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
         //db.execSQL(sqlCreate);
     }
 
-    /**
-     * Metode per a realitzar la cerca del usuari en la taula autobusos i comprovar que les dades són
-     * correctes.
-     * @param usuari
-     * @param contrasenya
-     * @return
-     */
-    
-    public boolean cercaUsuari(String usuari, String contrasenya){
-        boolean correcte = false;
 
-
-
-        return correcte;
-    }
 }
 
