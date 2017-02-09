@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\ALUMNEDAM\\AndroidStudioProjects\\Practica_Geolocalitzacio_UF2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "D:\\Proyectos_Android_studio\\Practica_Geolocalitzacio\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "C:\\Users\\ALUMNEDAM\\AndroidStudioProjects\\Practica_Geolocalitzacio_UF2\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "D:\\Proyectos_Android_studio\\Practica_Geolocalitzacio\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,

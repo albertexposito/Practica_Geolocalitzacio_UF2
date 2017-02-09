@@ -5,12 +5,16 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="23"
         android:targetSdkVersion="25" />
 
     <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +33,11 @@
         <activity
             android:name="net.sgoliver.android.bd.LogOutActivity"
             android:label="@string/title_activity_log_out" />
+
+        <service
+            android:name="net.sgoliver.android.bd.Servei"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

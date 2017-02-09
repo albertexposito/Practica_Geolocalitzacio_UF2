@@ -10,10 +10,12 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private SQLiteDatabase db;
+    public String tvCon;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,11 +69,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
             EditText etMatricula = (EditText) findViewById(R.id.etMatricula);
             EditText etContrasenya = (EditText) findViewById(R.id.etContrasenya);
 
-            String matricula = etMatricula.toString();
-            String contrasenya = etContrasenya.toString();
+            String matricula;
+            String contrasenya;
+
+
+            matricula = etMatricula.getText().toString();
+            contrasenya = etContrasenya.getText().toString();
+
+
+            TextView tv = (TextView) findViewById(R.id.textView3);
+            tv.setText(tvCon);
 
             //Condició per comprobar que l'usuari no deixa cap camp necessari buit.
-            if (matricula != null && contrasenya != null) {
+            if ( (!matricula.equals("")) && (!contrasenya.equals("")) ) {
 
                 if (cercaUsuari(matricula, contrasenya)){
                     //Anem a la següent activity.
@@ -128,14 +138,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String contrasenya = null;
 
 
+        //Cursor c = db.rawQuery("SELECT contrasenya FROM autobuses WHERE " + "( matricula = '" + matricula + "')", null);
         Cursor c = db.rawQuery("SELECT contrasenya FROM autobuses WHERE " + "( matricula = '" + matricula + "')", null);
+
 
         //Recorremos los resultados para mostrarlos en pantalla
 
         if (c.moveToFirst()) {
             //Recorremos el cursor hasta que no haya m�s registros
             do {
-                contrasenya = c.getString(0);
+                //contrasenya = c.getString(0);
+                tvCon = c.getString(0);
             } while(c.moveToNext());
         }
         //Cursor c = db.rawQuery(" ", null);
