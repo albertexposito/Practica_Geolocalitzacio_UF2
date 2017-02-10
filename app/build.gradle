@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.3"
     defaultConfig {
         applicationId "net.sgoliver.android.bd"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 25
     }
     buildTypes {

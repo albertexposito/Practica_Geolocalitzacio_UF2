@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements View.OnClickListener {
     private SQLiteDatabase db;
     public String tvCon;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,18 +84,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
             //Condició per comprobar que l'usuari no deixa cap camp necessari buit.
             if ( (!matricula.equals("")) && (!contrasenya.equals("")) ) {
 
-                if (cercaUsuari(matricula, contrasenya)){
+                Cursor c = db.rawQuery("SELECT * FROM autobuses WHERE '" + matricula + "' LIKE matricula AND '" + contrasenya + "' LIKE contrasenya", null);
+
                     //Anem a la següent activity.
                     Intent i = new Intent(this,LogOutActivity.class);
                     startActivity(i);
                     //Finalitzem l'activity actual.
                     finish();
-
-                }else{
-                    //Toast per mostrar missatge indicant que alguna de les dades es incorrecte.
-                    Toast.makeText(MainActivity.this, "Les dades introduides no són correctes.",
-                            Toast.LENGTH_SHORT).show();
-                }
 
             }else{
                 //Toast per mostrar missatge indicant que no es poden deixar camps buits.
@@ -106,55 +102,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
 
-
-    /**
-     * Metode per a realitzar la cerca del usuari en la taula autobusos i comprovar que les dades són
-     * correctes.
-     * @param usuari
-     * @param contrasenya
-     * @return
-     */
-
-    public boolean cercaUsuari(String usuari, String contrasenya){
-        boolean correcte = false;
-
-        String contrasenyaBD = consultaUsuari(usuari);
-
-        if( comprobarContrasenya(contrasenya, contrasenyaBD) ){
-            correcte = true;
-        }
-
-        return correcte;
-    }
-
-
-    /**
-     * Metode que rep la matricula i realitza una cerca en la base de dades interna buscant la contrasenya
-     * d'aquesta matricula, agafa la matricula i la retorna.
-     * @param matricula
-     * @return
-     */
-    public String consultaUsuari(String matricula){
-        String contrasenya = null;
-
-
-        //Cursor c = db.rawQuery("SELECT contrasenya FROM autobuses WHERE " + "( matricula = '" + matricula + "')", null);
-        Cursor c = db.rawQuery("SELECT contrasenya FROM autobuses WHERE " + "( matricula = '" + matricula + "')", null);
-
-
-        //Recorremos los resultados para mostrarlos en pantalla
-
-        if (c.moveToFirst()) {
-            //Recorremos el cursor hasta que no haya m�s registros
-            do {
-                //contrasenya = c.getString(0);
-                tvCon = c.getString(0);
-            } while(c.moveToNext());
-        }
-        //Cursor c = db.rawQuery(" ", null);
-
-        return contrasenya;
-    }
 
 
     /**

@@ -30,6 +30,11 @@ public class LogOutActivity extends Activity {
     private TextView textView;
     private BroadcastReceiver broadcastReceiver;
 
+
+
+
+
+    /*SI*/
     @Override
     protected void onResume() {
         super.onResume();
@@ -46,28 +51,20 @@ public class LogOutActivity extends Activity {
         registerReceiver(broadcastReceiver,new IntentFilter("location_update"));
     }
 
+    /*SI*/
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if(broadcastReceiver != null){
             unregisterReceiver(broadcastReceiver);
         }
+        Intent i = new Intent(getApplicationContext(), GPS_servei.class);
+        stopService(i);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        btn_start = (Button) findViewById(R.id.button);
-        btn_stop = (Button) findViewById(R.id.button2);
-        textView = (TextView) findViewById(R.id.textView);
 
-        if(!runtime_permissions())
-            enable_buttons();
-
-    }
-
+    /*SI*/
     private void enable_buttons() {
 
         btn_start.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +87,7 @@ public class LogOutActivity extends Activity {
 
     }
 
+    /*SI*/
     private boolean runtime_permissions() {
         if(Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
 
@@ -101,6 +99,7 @@ public class LogOutActivity extends Activity {
     }
 
 
+    /**SI*/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
