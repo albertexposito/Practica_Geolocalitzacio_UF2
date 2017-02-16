@@ -81,8 +81,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             TextView tv = (TextView) findViewById(R.id.textView3);
             tv.setText(tvCon);
 
+            //Anem a la següent activity.
+            Intent i = new Intent(this,LogOutActivity.class);
+            startActivity(i);
+            //Finalitzem l'activity actual.
+            finish();
+
+
             //Condició per comprobar que l'usuari no deixa cap camp necessari buit.
-            if ( (!matricula.equals("")) && (!contrasenya.equals("")) ) {
+            /*if ( (!matricula.equals("")) && (!contrasenya.equals("")) ) {
 
                 Cursor c = db.rawQuery("SELECT * FROM autobuses WHERE '" + matricula + "' LIKE matricula AND '" + contrasenya + "' LIKE contrasenya", null);
 
@@ -96,7 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 //Toast per mostrar missatge indicant que no es poden deixar camps buits.
                 Toast.makeText(MainActivity.this, "No es poden deixar camps buits.",
                         Toast.LENGTH_SHORT).show();
-            }
+            }*/
         }
     }
 

@@ -23,6 +23,12 @@ public class LogOutActivity extends Activity {
     private TextView textView;
     private BroadcastReceiver broadcastReceiver;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_log_out);
+
+    }
 
 
 

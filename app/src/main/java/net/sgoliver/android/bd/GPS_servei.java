@@ -36,6 +36,12 @@ public class GPS_servei extends Service {
                 Intent i = new Intent("location_update");
                 i.putExtra("coordinates",location.getLongitude()+" "+location.getLatitude());
                 sendBroadcast(i);
+
+                String localizacion;
+                String latitud = String.valueOf(location.getLatitude()), longitut = String.valueOf(location.getLongitude());
+                localizacion = latitud + "  " + longitut;
+                Toast.makeText(GPS_servei.this, "" + localizacion, Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -71,6 +77,8 @@ public class GPS_servei extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
+    @SuppressWarnings("MissingPermission")
     @Override
     public void onDestroy() {
         super.onDestroy();
