@@ -31,6 +31,12 @@ public class GPS_servei extends Service {
     public void onCreate() {
     super.onCreate();
         listener = new LocationListener() {
+
+
+            /**
+             * Metode que s'executa cada cop que la localització es actualitzada.
+             * @param location
+             */
             @Override
             public void onLocationChanged(Location location) {
                 Intent i = new Intent("location_update");
